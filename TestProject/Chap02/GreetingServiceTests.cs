@@ -7,7 +7,7 @@ namespace TestProject.Chap02;
 [TestClass]
 public class GreetingServiceTests
 {
-    [TestMethod("テストケース1: 朝の時間帯(代表値7時)ではGood Morningを返す")]
+    [TestMethod("テストケース1-1: 朝の時間帯(代表値7時)ではGood Morningを返す")]
     public void Return_Moning_GoodMorning() //メソッド名（処理＋条件＋期待結果）
     {
         // Arrange(準備)
@@ -18,8 +18,19 @@ public class GreetingServiceTests
         // Assert(確認)：期待通りかどうかを判定するAssertメソッド
         Assert.AreEqual("Good Morning", result);//Assert.AreEqual(期待値expected, 実際actual)
     }
-    [TestMethod("テストケース2: 昼の時間帯(代表値12時)ではHelloを返す")]
-    public void Return_Noon_Hello() //メソッド名（処理＋条件＋期待結果）
+    [TestMethod("テストケース1-2: 朝の時間帯(代表値11時)ではGood Morningを返す")]
+    public void Return_Moning11_GoodMorning() //メソッド名（処理＋条件＋期待結果）
+    {
+        // Arrange(準備)
+        var greetingservice = new GreetingService();//インスタンス生成
+        int hour = 11;//代入
+        // Act(実行)
+        var result = greetingservice.Greet(hour);
+        // Assert(確認)：期待通りかどうかを判定するAssertメソッド
+        Assert.AreEqual("Good Morning", result);//Assert.AreEqual(期待値expected, 実際actual)
+    }
+    [TestMethod("テストケース2-1: 昼の時間帯(12時)ではHelloを返す")]
+    public void Return_Noon12_Hello() //メソッド名（処理＋条件＋期待結果）
     {
         // Arrange(準備)
         var greetingservice = new GreetingService();//インスタンス生成
@@ -29,12 +40,34 @@ public class GreetingServiceTests
         // Assert(確認)：期待通りかどうかを判定するAssertメソッド
         Assert.AreEqual("Hello", result);//Assert.AreEqual(期待値expected, 実際actual)
     }
-    [TestMethod("テストケース3: 夕方の時間帯(代表値18時)ではGood Eveningを返す")]
-    public void Return_Evening_GoodEvening() //メソッド名（処理＋条件＋期待結果）
+    [TestMethod("テストケース2-2: 昼の時間帯(代表値17時)ではHelloを返す")]
+    public void Return_Noon17_Hello() //メソッド名（処理＋条件＋期待結果）
+    {
+        // Arrange(準備)
+        var greetingservice = new GreetingService();//インスタンス生成
+        int hour = 17;//代入
+        // Act(実行)
+        var result = greetingservice.Greet(hour);
+        // Assert(確認)：期待通りかどうかを判定するAssertメソッド
+        Assert.AreEqual("Hello", result);//Assert.AreEqual(期待値expected, 実際actual)
+    }
+    [TestMethod("テストケース3-1: 夕方の時間帯(代表値18時)ではGood Eveningを返す")]
+    public void Return_Evening18_GoodEvening() //メソッド名（処理＋条件＋期待結果）
     {
         // Arrange(準備)
         var greetingservice = new GreetingService();//インスタンス生成
         int hour = 18;//代入
+        // Act(実行)
+        var result = greetingservice.Greet(hour);
+        // Assert(確認)：期待通りかどうかを判定するAssertメソッド
+        Assert.AreEqual("Good Evening", result);//Assert.AreEqual(期待値expected, 実際actual)
+    }
+    [TestMethod("テストケース3-2: 夕方の時間帯(20時)ではGood Eveningを返す")]
+    public void Return_Evening20_GoodEvening() //メソッド名（処理＋条件＋期待結果）
+    {
+        // Arrange(準備)
+        var greetingservice = new GreetingService();//インスタンス生成
+        int hour = 20;//代入
         // Act(実行)
         var result = greetingservice.Greet(hour);
         // Assert(確認)：期待通りかどうかを判定するAssertメソッド
@@ -51,7 +84,7 @@ public class GreetingServiceTests
         // Assert(確認)：期待通りかどうかを判定するAssertメソッド
         Assert.AreEqual("Good Night", result);//Assert.AreEqual(期待値expected, 実際actual)
     }
-    [TestMethod("テストケース5: 早朝の時間帯(代表値6時)ではGood Nightを返す")]
+    [TestMethod("テストケース5: 6時は朝に含まれずGood Nightを返す")]
     public void Return_beforeMorning_GoodNight() //メソッド名（処理＋条件＋期待結果）
     {
         // Arrange(準備)
